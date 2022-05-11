@@ -27,13 +27,13 @@ NestedIterator.prototype.nestedElementGenerator = function* (nestedList) {
  * @return {NestedInteger}
  */
 NestedIterator.prototype.next = function () {
-    if (!hasNext()) {
-        throw "Iterator out of bounds.";
+    if (!this.hasNext()) {
+        throw "Element not found.";
     }
 
-    let nextValue = this.nextElement;
+    let currentValue = this.nextElement;
     this.nextElement = null;
-    return nextValue;
+    return currentValue;
 };
 
 /**
