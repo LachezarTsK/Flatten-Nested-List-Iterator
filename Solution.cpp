@@ -35,7 +35,7 @@ public:
 
     int next() {
         if (!hasNext()) {
-            throw out_of_range("Iterator out of bounds.");
+            throw out_of_range("Element not found.");
         }
 
         int next = (*stack.front().first).getInteger();
