@@ -13,8 +13,8 @@ var NestedIterator = function (nestedList) {
  * @returns {NestedInteger}
  */
 NestedIterator.prototype.next = function () {
-    if (!hasNext()) {
-        throw "Iterator out of bounds.";
+    if (!this.hasNext()) {
+        throw "Element not found.";
     }
     return this.stack[this.stack.length - 1].shift().getInteger();
 };
