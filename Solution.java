@@ -18,13 +18,19 @@ public class NestedIterator implements Iterator<Integer> {
     @Override
     public Integer next() throws NoSuchElementException {
         if (!hasNext()) {
-            throw new NoSuchElementException("Iterator out of bounds.");
+            throw new NoSuchElementException("Element not found.");
         }
-        return next.getInteger();
+        int currentValue = next.getInteger();
+        next = null;
+        return currentValue;
     }
 
     @Override
     public boolean hasNext() {
+        if (next != null) {
+            return true;
+        }
+
         while (!stack.isEmpty()) {
             if (!stack.peek().hasNext()) {
                 stack.pop();
@@ -57,4 +63,3 @@ interface NestedInteger {
     // Return empty list if this NestedInteger holds a single integer
     public List<NestedInteger> getList();
 }// @return the nested list that this NestedInteger holds, if it holds a nested list
- 
